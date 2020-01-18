@@ -140,9 +140,13 @@ redis            172.30.1.1:5000/openshift/redis            latest,3.2          
 ruby             172.30.1.1:5000/openshift/ruby             2.0,2.2,2.3 + 2 more...       40 minutes ago
 wildfly          172.30.1.1:5000/openshift/wildfly          10.0,10.1,8.1 + 2 more...     40 minutes ago
 ```
-# Describe imagestream and istag 
+## Describe imagestream and istag 
 ```bash
 PS C:\WINDOWS\system32> oc describe is openjdk18    
 PS C:\WINDOWS\system32> oc describe istag openjdk18:latest  
 ```
-# Deploy your application using the imagestream to see if it works.
+## Deploy your application using the imagestream to see if it works.
+```bash
+PS C:\WINDOWS\system32> oc new-project demo  
+ oc new-app --i openjdk18 https://github.com/manojsingh-manoj/SpringBEx.git --name springbootexample 
+```
