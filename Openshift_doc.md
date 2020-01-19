@@ -116,7 +116,8 @@ Login Succeeded
 ## Tag image and push into docker internal registry
 Note that after push output shows for me is "Layer already exists" but for you it will be different. 
 ```bash
-PS C:\WINDOWS\system32> docker tag registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift 172.30.1.1:5000/openshift/openjdk18                                                                            PS C:\WINDOWS\system32> docker push  172.30.1.1:5000/openshift/openjdk18                                                                                                                                           The push refers to repository [172.30.1.1:5000/openshift/openjdk18]
+PS C:\WINDOWS\system32> docker tag registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift 172.30.1.1:5000/openshift/openjdk18                                                                            
+PS C:\WINDOWS\system32> docker push  172.30.1.1:5000/openshift/openjdk18                                                                                                                                           The push refers to repository [172.30.1.1:5000/openshift/openjdk18]
 ea6748bd08c5: Layer already exists                                                                                                                                                                                 967fdc97a8ce: Layer already exists                                                                                                                                                                                 2ea2a8104ce0: Layer already exists                                                                                                                                                                                 latest: digest: sha256:6e57efae4828dbae77e18f12d2d3691df959e344fcd87e91ec38e03c5aec5f98 size: 949
 ```
 ## Check if image stream exists in your openshift namespace with openjdk18
@@ -148,5 +149,5 @@ PS C:\WINDOWS\system32> oc describe istag openjdk18:latest
 ## Deploy your application using the imagestream to see if it works.
 ```bash
 PS C:\WINDOWS\system32> oc new-project demo  
- oc new-app --i openjdk18 https://github.com/manojsingh-manoj/SpringBEx.git --name springbootexample 
+ oc new-app -i openjdk18 https://github.com/manojsingh-manoj/SpringBEx.git --name springbootexample 
 ```
